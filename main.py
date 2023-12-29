@@ -45,11 +45,29 @@ class JsonValidator:
         # 3.  To check eihthe one field or another field 
         either_one = schema.get('either_one', [])
         if not any(field in json_data for field in either_one) or \
-            not all(field not in json_data for field in set(schema) - set(either_one_fields)):
-            print("44")
+            not all(field not in json_data for field in set(schema) - set(either_one)):
+                return False
+
+        # 4. mutually exclusive fields (if one is present, the other should not be present)
+        # In this we perform mutually exclusive on dob and uid
+        mutual_exclusive=schema.get("mutual_exclusive")     
+        if all(field in json_data for field in mutual_exclusive):
                 return False
         
-            print(group)
+        # 5. field value to be one of a set of values. Example: field day can have only one of
+# SU,MO,TU,WE,TH,FR,SA (enum)
+        enum_day=schema.get("enum",[])
+        if sum(day in json_data for day in enum_day)>1:
+             return False
+
+        
+            
+
+
+
+            
+
+
         return True
 if __name__=="__main__":
     j=JsonValidator()

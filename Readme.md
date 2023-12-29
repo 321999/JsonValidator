@@ -39,5 +39,4 @@ Check if all fields from the set difference between schema and either_one_fields
 * after that we have to check the 
 ```
 not of condition1 or not of condition2 then we return false
-
 ```
