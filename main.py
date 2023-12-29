@@ -43,8 +43,8 @@ class JsonValidator:
                 return False
 
         # 3.  To check eihthe one field or another field 
-        either_one_fields = schema.get('either_one', [])
-        if not any(field in json_data for field in either_one_fields) or \
+        either_one = schema.get('either_one', [])
+        if not any(field in json_data for field in either_one) or \
             not all(field not in json_data for field in set(schema) - set(either_one_fields)):
             print("44")
                 return False
