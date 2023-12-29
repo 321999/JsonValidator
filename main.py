@@ -30,6 +30,7 @@ class JsonValidator:
         # first of all validating the required field
         print("printing schema file ",schema.get("required"))
         #  id, name field to be declared as they are mandatory
+       
         for field in schema.get("required",[]):
             if field not in json_data:
                 print(f"{field} not in json")
