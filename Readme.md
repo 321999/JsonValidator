@@ -1,3 +1,24 @@
+# To run the program on cloud click on 
+```
+https://colab.research.google.com/github/321999/JsonValidator/blob/master/JsonValidator.ipynb
+```
+## To run the program on vs code 
+### step 1 
+```
+git clone https://github.com/321999/JsonValidator.git
+```
+### step 2
+```
+cd JsonValidator
+```
+### step 3
+```
+run the main.py 
+```
+
+# PROCESS USED TO ACHIEVE THE PROJECT
+
+
 ### to validate a json against a given schema file
 
 ### First we have to creating the schema file
