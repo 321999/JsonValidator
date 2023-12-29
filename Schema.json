@@ -14,7 +14,7 @@ SU,MO,TU,WE,TH,FR,SA (enum)
     "atleast_one_of_many":[
         ["home phone","cell phone","work phone"]
     ],
-    "either_one":["DOB","UID"],
-    "mutual_exclusive":[["DOB","UID"]],
-    "day":["SU","MO","TU","WE","TH","FR","SA"]
+    "either_one":["DOB","govt_id"],
+    "mutual_exclusive":[["DOB","govt_id"]],
+    "enum":["SU","MO","TU","WE","TH","FR","SA"]
 }
