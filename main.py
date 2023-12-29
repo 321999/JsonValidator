@@ -35,6 +35,14 @@ class JsonValidator:
             if field not in json_data:
                 print(f"{field} not in json")
                 return False
+        
+        # logic atleast one of many fields to be present. Example: one of home phone or cell phone
+        for group in schema.get("atleast_one_of_many"):
+            if not any(item in json_data for item in group):
+                # if not any of the field is present in the json data then return false
+                return False
+
+            print(group)
         return True
 if __name__=="__main__":
     j=JsonValidator()
