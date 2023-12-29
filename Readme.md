@@ -5,4 +5,11 @@
 ### mutual exclusive 
 if one is value is present other should not present 
 
-json file and loaded
+#### \
+"\" symbol is used to continue to the next line
+
+```
+if 6<10.   \
+:
+  print("correct")
+```
