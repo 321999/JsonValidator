@@ -40,3 +40,5 @@ Check if all fields from the set difference between schema and either_one_fields
 ```
 not of condition1 or not of condition2 then we return false
 ```
+#### json.JSONDecodeError
+when the json data is not in a valid format that time JSONDecodeError will arise

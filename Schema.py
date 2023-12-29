@@ -12,7 +12,7 @@ SU,MO,TU,WE,TH,FR,SA (enum)
 Schema={
     "required":["id","name"],
     "atleast_one_of_many":[
-        ["home phone","cell phone","work phone"]
+        ["home_phone","cell_phone","work_phone"]
     ],
     "either_one":["DOB","govt_id"],
     "mutual_exclusive":[["DOB","govt_id"]],

@@ -1,5 +1,8 @@
 from pathlib import Path
+from typing import Any
 import json
+
+
 # creating a class called JsonValidator
 class JsonValidator:
 
@@ -30,28 +33,26 @@ class JsonValidator:
         # first of all validating the required field
         print("printing schema file ",schema.get("required"))
         #  id, name field to be declared as they are mandatory
-       
+        # print(schema.get("required",[]))
         for field in schema.get("required",[]):
             if field not in json_data:
+                print("*"*24)
                 print(f"{field} not in json")
                 return False
-        
+        # print(schema.get("atleast_one_of_many"))
         # logic atleast one of many fields to be present. Example: one of home phone or cell phone
-        for group in schema.get("atleast_one_of_many"):
+        schema_data=schema.get("atleast_one_of_many")
+        for group in schema_data:
+            print(any(it in json_data for it in group))
             if not any(item in json_data for item in group):
                 # if not any of the field is present in the json data then return false
                 return False
 
-        # 3.  To check eihthe one field or another field 
-        either_one = schema.get('either_one', [])
-        if not any(field in json_data for field in either_one) or \
-            not all(field not in json_data for field in set(schema) - set(either_one)):
-                return False
-
         # 4. mutually exclusive fields (if one is present, the other should not be present)
         # In this we perform mutually exclusive on dob and uid
-        mutual_exclusive=schema.get("mutual_exclusive")     
-        if all(field in json_data for field in mutual_exclusive):
+        mutual_exclusive=schema.get("mutual_exclusive")  
+        for group in mutual_exclusive:  
+           if all(field in json_data for field in group):
                 return False
         
         # 5. field value to be one of a set of values. Example: field day can have only one of
@@ -59,14 +60,6 @@ class JsonValidator:
         enum_day=schema.get("enum",[])
         if sum(day in json_data for day in enum_day)>1:
              return False
-
-        
-            
-
-
-
-            
-
 
         return True
 if __name__=="__main__":
