@@ -4,3 +4,5 @@
 
 ### mutual exclusive 
 if one is value is present other should not present 
+
+json file and loaded
